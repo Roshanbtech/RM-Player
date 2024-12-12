@@ -12,11 +12,29 @@ const allMusic = [
         img: "song2",
     },
     {
-        name: "Song Three",
-        artist: "Artist Three",
+        name: "Bilionera",
+        artist: "Otilia",
         src: "song3",
         img: "song3",
-    }
+    },
+    {
+        name: "Poi Maranju",
+        artist: "Roshan",
+        src: "song4",
+        img: "song4",
+    },
+    {
+        name: "Raave",
+        artist: "Roshan",
+        src: "song5",
+        img: "song5",
+    },
+    {
+        name: "Prisonera",
+        artist: "Otilia",
+        src: "song6",
+        img: "song6",
+    },
 ];
 
 // Function to change the theme (your existing code)
