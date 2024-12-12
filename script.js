@@ -1,13 +1,13 @@
 const allMusic = [
     {
-        name: "Song One",
-        artist: "Artist One",
+        name: "Sati",
+        artist: "Roshan",
         src: "song1",
         img: "song1",
     },
     {
-        name: "Song Two",
-        artist: "Artist Two",
+        name: "Maya",
+        artist: "Roshan",
         src: "song2",
         img: "song2",
     },
