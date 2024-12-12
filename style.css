@@ -6,6 +6,13 @@
     font-family: 'Arial', sans-serif;
 }
 
+:root {
+    --neon-blue: #00ffff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff00;
+    --neon-yellow: #ffff00;
+}
+
 /* Background and layout */
 body {
     background-color: #121212;
@@ -44,11 +51,33 @@ button.headbtn {
     border-radius: 50%;
     box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.3), inset -3px -3px 5px rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, color 0.3s;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+button.headbtn:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    /* background: var(--neon-blue); */
+    z-index: -1;
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 button.headbtn:hover {
     transform: scale(1.1);
+    color: var(--neon-blue);
+}
+
+button.headbtn:hover:before {
+    opacity: 1;
 }
 
 /* Playing Now text */
@@ -74,7 +103,7 @@ button.headbtn:hover {
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    animation: flameGlow 5s infinite alternate;
 }
 
 .img-area img {
@@ -83,29 +112,34 @@ button.headbtn:hover {
     object-fit: cover;
 }
 
-/* Sound wave animation around image */
-.img-area:before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    animation: soundwave 1.5s infinite ease-in-out;
+@keyframes flameGlow {
+    0% {
+        box-shadow: 0 0 5px 2px var(--neon-blue),
+                    0 0 10px 5px var(--neon-blue),
+                    0 0 15px 7px var(--neon-blue);
+    }
+    33% {
+        box-shadow: 0 0 5px 2px var(--neon-pink),
+                    0 0 10px 5px var(--neon-pink),
+                    0 0 15px 7px var(--neon-pink);
+    }
+    66% {
+        box-shadow: 0 0 5px 2px var(--neon-green),
+                    0 0 10px 5px var(--neon-green),
+                    0 0 15px 7px var(--neon-green);
+    }
+    100% {
+        box-shadow: 0 0 5px 2px var(--neon-yellow),
+                    0 0 10px 5px var(--neon-yellow),
+                    0 0 15px 7px var(--neon-yellow);
+    }
 }
 
-@keyframes soundwave {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scale(1.3);
-        opacity: 1;
-    }
+/* Remove the soundwave animation */
+.img-area:before {
+    content: none;
 }
+
 
 /* Song Details */
 .song-details {
@@ -145,13 +179,16 @@ button.headbtn:hover {
     background: #333;
     border-radius: 50px;
     margin-top: 10px;
+    overflow: hidden;
 }
 
 .progress-bar {
     width: 0;
     height: 100%;
-    background: #9b59b6;
+    background: var(--neon-color, var(--neon-blue));
     border-radius: 50px;
+    box-shadow: 0 0 10px var(--neon-color, var(--neon-blue));
+    transition: width 0.1s linear, background 0.3s, box-shadow 0.3s;
 }
 
 /* Controls */
@@ -170,16 +207,38 @@ button.btnC {
     border-radius: 50%;
     box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.3), inset -3px -3px 5px rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.3s;
+    transition: transform 0.2s, box-shadow 0.3s, color 0.3s;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+button.btnC:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    /* background: var(--neon-blue); */
+    z-index: -1;
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 button.btnC:hover {
     transform: scale(1.1);
     box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5), inset -5px -5px 10px rgba(255, 255, 255, 0.2);
+    color: var(--neon-blue);
+}
+
+button.btnC:hover:before {
+    opacity: 1;
 }
 
 button.play-pause {
-    background-color: #9b59b6; /* Violet for play/pause button */
+    background-color: #1b1b1b;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -188,12 +247,32 @@ button.play-pause {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s, background-color 0.3s;
+    transition: transform 0.2s, background-color 0.3s, color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+button.play-pause:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    /* background: var(--neon-pink); */
+    z-index: -1;
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 button.play-pause:hover {
     transform: scale(1.2);
-    background-color: #8e44ad;
+    color: var(--neon-blue);
+}
+
+button.play-pause:hover:before {
+    opacity: 1;
 }
 
 /* Neon Gradient Background Animation */
@@ -215,7 +294,35 @@ button.play-pause:hover {
     }
 }
 
-/* Apply the animation when playing music */
-.wrapper.playing {
-    animation: neonGradient 10s infinite ease-in-out;
+/* Color changing animation */
+@keyframes colorChange {
+    0%, 100% { --neon-color: var(--neon-blue); }
+    33% { --neon-color: var(--neon-pink); }
+    66% { --neon-color: var(--neon-green); }
 }
+
+/* Apply the animations when playing music */
+.wrapper.playing {
+    animation: neonGradient 10s infinite ease-in-out, colorChange 15s infinite;
+}
+
+/* Removed color change effect for buttons */
+
+.wrapper.playing .progress-bar {
+    background: var(--neon-color);
+    box-shadow: 0 0 10px var(--neon-color);
+}
+
+/* button.btnC:before,
+button.play-pause:before {
+    background: var(--neon-blue);
+}
+
+button.btnC:hover {
+    color: var(--neon-blue);
+}
+
+button.play-pause:hover {
+    color: var(--neon-pink);
+} */
+

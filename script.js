@@ -58,6 +58,7 @@ const nextBtn = wrapper.querySelector("#next");
 const mainAudio = wrapper.querySelector("#main-audio");
 const progressArea = wrapper.querySelector(".progress-area");
 const progressBar = wrapper.querySelector(".progress-bar");
+const status = wrapper.querySelector(".p-now");
 
 let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 let isMusicPaused = true;
@@ -79,6 +80,7 @@ function playMusic() {
     wrapper.classList.add("paused", "playing");
     musicImg.classList.add("pulse");
     playPauseBtn.innerHTML = `<i class="fi fi-sr-pause"></i>`;
+    status.innerHTML = "Now Playing";
     mainAudio.play();
     changeTheme();
 }
@@ -86,6 +88,7 @@ function playMusic() {
 function pauseMusic() {
     wrapper.classList.remove("paused", "playing");
     musicImg.classList.remove("pulse");
+    status.innerHTML = "Paused";
     playPauseBtn.innerHTML = `<i class="fi fi-sr-play"></i>`;
     mainAudio.pause();
 }
