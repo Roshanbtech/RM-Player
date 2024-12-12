@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RM Player</title>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+           <button class="headbtn">
+               <i class="fi fi-sr-arrow-small-left"></i>
+           </button>
+           <h3 class="p-now">Playing Now</h3>
+           <button class="headbtn">
+               <i class="fi fi-sr-list"></i>
+           </button>
+        </header>
+        <div class="player">
+            <div class="img-area">
+                <img src="assets/images/song1.jpg" alt="Album Art">
+            </div>
+            <div class="song-details">
+                <h1 class="name">Animations</h1>
+                <h3 class="artist">BTS</h3>
+            </div>
+            <div class="audio">
+                <div class="song-timer">
+                    <span class="current-time">0:00</span>
+                    <span class="max-duration">0:00</span>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-bar"></div>
+                </div>
+                <audio src="" id="main-audio"></audio>
+            </div>
+            <div class="controls">
+                <button class="btnC" id="prev">
+                    <i class="fi fi-sr-rewind"></i>
+                </button>
+                <button class="play-pause btnC">
+                    <i class="fi fi-sr-play"></i>
+                </button>
+                <button class="btnC" id="next">
+                    <i class="fi fi-sr-forward"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
